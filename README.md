@@ -1,2 +1,3 @@
-# ddd-live
-DDD直播项目案例
+# DDD-LIVE
+
+基于DDD实现的直播服务
