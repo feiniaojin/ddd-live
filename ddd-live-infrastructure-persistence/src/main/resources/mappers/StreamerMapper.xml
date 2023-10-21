@@ -56,4 +56,34 @@
         <include refid="BaseColumn"/>
         from t_streamer where id=#{id}
     </select>
+
+    <select id="countForPageList" resultType="java.lang.Integer">
+        select
+        count(1)
+        from t_streamer
+        <where>
+            <if test="streamerId != null ">
+                and streamer_id =#{streamerId}
+            </if>
+            <if test="streamerName != null ">
+                and streamer_name = #{streamerName}
+            </if>
+        </where>
+    </select>
+
+    <select id="pageList" resultMap="BaseResultMap">
+        select
+        <include refid="BaseColumn"/>
+        from t_streamer
+        <where>
+            <if test="streamerId != null ">
+                and streamer_id =#{streamerId}
+            </if>
+            <if test="streamerName != null ">
+                and streamer_name = #{streamerName}
+            </if>
+        </where>
+        order by id desc
+        limit #{limitStart},#{limitEnd}
+    </select>
 </mapper>

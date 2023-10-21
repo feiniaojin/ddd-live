@@ -20,4 +20,6 @@ public class LiveController {
     public PageBean<LiveView> pageList(LiveQuery query) {
         return liveQueryService.pageList(query);
     }
+
+
 }

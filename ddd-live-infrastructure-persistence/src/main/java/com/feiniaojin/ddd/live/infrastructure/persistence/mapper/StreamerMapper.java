@@ -4,6 +4,8 @@ import com.feiniaojin.ddd.live.infrastructure.persistence.data.Streamer;
 import org.apache.ibatis.annotations.Param;
 
 import javax.annotation.Generated;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 表名称：t_streamer自动生成的Mapper
@@ -15,4 +17,8 @@ import javax.annotation.Generated;
 public interface StreamerMapper {
     int insert(Streamer record);
     Streamer findOneById(@Param("id")Long id);
+
+    int countForPageList(Map<String, Object> paramMap);
+
+    List<Streamer> pageList(Map<String, Object> paramMap);
 }
