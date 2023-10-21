@@ -1,8 +1,8 @@
 package com.feiniaojin.ddd.live.domain;
 
-import com.feiniaojin.ddd.ValueObject;
+import com.feiniaojin.ddd.EntityId;
 
-public class LiveId implements ValueObject<String> {
+public class LiveId implements EntityId<String> {
 
     private String value;
 

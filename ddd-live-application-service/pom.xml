@@ -18,6 +18,10 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.feiniaojin</groupId>
+            <artifactId>graceful-response</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.feiniaojin.ddd.live</groupId>
             <artifactId>ddd-live-domain</artifactId>
         </dependency>

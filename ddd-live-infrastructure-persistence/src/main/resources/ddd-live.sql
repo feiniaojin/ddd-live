@@ -19,8 +19,8 @@ CREATE TABLE `t_room` (
 
 CREATE TABLE `t_live` (
 	`id` bigint NOT NULL AUTO_INCREMENT COMMENT '自增主键',
+	`live_id` varchar(64) NULL COMMENT '直播id',
 	`room_id` varchar(64) NULL COMMENT '房间号，业务主键',
-	`stream_id` varchar(64) NULL COMMENT '推流id',
 	`plan_start_time` DATETIME  NULL COMMENT '计划开播时间',
 	`plan_end_time` DATETIME  NULL COMMENT '计划下播时间',
 	`live_status` INT  NULL COMMENT '直播状态',

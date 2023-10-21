@@ -22,11 +22,6 @@ public class LiveEntity extends AbstractDomainMask {
     private String roomId;
 
     /**
-     * 推流ID
-     */
-    private String streamId;
-
-    /**
      * 计划开始时间
      */
     private Date planStartTime;

@@ -20,3 +20,5 @@ spring:
       pool-name: DatebookHikariCP
       max-lifetime: 1800000
       connection-timeout: 10000
+graceful-response:
+  print-exception-in-global-advice: true

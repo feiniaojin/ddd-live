@@ -31,9 +31,9 @@ public class Live implements Serializable {
      */
     private String roomId;
     /**
-     * 推流id
+     * 直播id
      */
-    private String streamId;
+    private String liveId;
     /**
      * 计划开播时间
      */

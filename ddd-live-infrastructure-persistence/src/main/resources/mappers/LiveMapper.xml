@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  NOTICE:本文件由代码生成器code-generator生成
+  github：https://github.com/feiniaojin/code-generator
+-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.feiniaojin.ddd.live.infrastructure.persistence.mapper.LiveMapper">
+    <resultMap id="BaseResultMap" type="com.feiniaojin.ddd.live.infrastructure.persistence.data.Live">
+        <result column="id" property="id"/>
+        <result column="room_id" property="roomId"/>
+        <result column="live_id" property="liveId"/>
+        <result column="plan_start_time" property="planStartTime"/>
+        <result column="plan_end_time" property="planEndTime"/>
+        <result column="live_status" property="liveStatus"/>
+        <result column="deleted" property="deleted"/>
+        <result column="created_by" property="createdBy"/>
+        <result column="created_time" property="createdTime"/>
+        <result column="modified_by" property="modifiedBy"/>
+        <result column="modified_time" property="modifiedTime"/>
+        <result column="version" property="version"/>
+    </resultMap>
+    <sql id="BaseColumn">
+        id,
+        room_id,
+        live_id,
+        plan_start_time,
+        plan_end_time,
+        live_status,
+        deleted,
+        created_by,
+        created_time,
+        modified_by,
+        modified_time,
+        version
+    </sql>
+    <insert id="insert" parameterType="com.feiniaojin.ddd.live.infrastructure.persistence.data.Live">
+        insert into t_live (
+        id,
+        room_id,
+        live_id,
+        plan_start_time,
+        plan_end_time,
+        live_status,
+        deleted,
+        created_by,
+        created_time,
+        modified_by,
+        modified_time,
+        version
+        )
+        <trim prefix="values (" suffix=")">
+            #{id},
+            #{roomId},
+            #{liveId},
+            #{planStartTime},
+            #{planEndTime},
+            #{liveStatus},
+            #{deleted},
+            #{createdBy},
+            #{createdTime},
+            #{modifiedBy},
+            #{modifiedTime},
+            #{version}
+        </trim>
+    </insert>
+    <select id="findOneById" resultMap="BaseResultMap">
+        select
+        <include refid="BaseColumn"/>
+        from t_live where id=#{id}
+    </select>
+
+    <select id="pageList" resultMap="BaseResultMap">
+        select
+        <include refid="BaseColumn"/>
+        from t_live
+        <where>
+            <if test="roomId != null">
+                and room_id=#{roomId}
+            </if>
+            <if test="liveStatus != null">
+                and live_status=#{liveStatus}
+            </if>
+        </where>
+        order by id desc
+        limit #{limitStart},#{limitEnd}
+    </select>
+
+    <select id="countForPageList">
+        select
+        count(1)
+        from t_live
+        <where>
+            <if test="roomId != null">
+                and room_id=#{roomId}
+            </if>
+            <if test="liveStatus != null">
+                and live_status=#{liveStatus}
+            </if>
+        </where>
+    </select>
+</mapper>

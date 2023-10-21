@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  NOTICE:本文件由代码生成器code-generator生成
+  github：https://github.com/feiniaojin/code-generator
+-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.feiniaojin.ddd.live.infrastructure.persistence.mapper.StreamerMapper">
+    <resultMap id="BaseResultMap" type="com.feiniaojin.ddd.live.infrastructure.persistence.data.Streamer">
+        <result column="id" property="id"/>
+        <result column="streamer_id" property="streamerId"/>
+        <result column="streamer_name" property="streamerName"/>
+        <result column="deleted" property="deleted"/>
+        <result column="created_by" property="createdBy"/>
+        <result column="created_time" property="createdTime"/>
+        <result column="modified_by" property="modifiedBy"/>
+        <result column="modified_time" property="modifiedTime"/>
+        <result column="version" property="version"/>
+    </resultMap>
+    <sql id="BaseColumn">
+        id,
+        streamer_id,
+        streamer_name,
+        deleted,
+        created_by,
+        created_time,
+        modified_by,
+        modified_time,
+        version
+    </sql>
+    <insert id="insert" parameterType="com.feiniaojin.ddd.live.infrastructure.persistence.data.Streamer">
+        insert into t_streamer (
+        id,
+        streamer_id,
+        streamer_name,
+        deleted,
+        created_by,
+        created_time,
+        modified_by,
+        modified_time,
+        version
+        )
+        <trim prefix="values (" suffix=")">
+            #{id},
+            #{streamerId},
+            #{streamerName},
+            #{deleted},
+            #{createdBy},
+            #{createdTime},
+            #{modifiedBy},
+            #{modifiedTime},
+            #{version}
+        </trim>
+    </insert>
+    <select id="findOneById" resultMap="BaseResultMap">
+        select
+        <include refid="BaseColumn"/>
+        from t_streamer where id=#{id}
+    </select>
+</mapper>
