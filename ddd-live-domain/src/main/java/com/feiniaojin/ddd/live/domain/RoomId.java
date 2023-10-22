@@ -6,6 +6,14 @@ public class RoomId implements EntityId<String> {
 
     private String value;
 
+
+    public RoomId() {
+    }
+
+    public RoomId(String value) {
+        this.value = value;
+    }
+
     public void setValue(String value) {
         this.value = value;
     }

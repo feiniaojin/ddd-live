@@ -6,6 +6,13 @@ public class StreamerId implements EntityId<String> {
 
     private String value;
 
+    public StreamerId() {
+    }
+
+    public StreamerId(String value) {
+        this.value = value;
+    }
+
     public void setValue(String value) {
         this.value = value;
     }

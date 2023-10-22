@@ -4,6 +4,8 @@ import com.feiniaojin.ddd.live.infrastructure.persistence.data.Room;
 import org.apache.ibatis.annotations.Param;
 
 import javax.annotation.Generated;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 表名称：t_room自动生成的Mapper
@@ -15,4 +17,8 @@ import javax.annotation.Generated;
 public interface RoomMapper {
     int insert(Room record);
     Room findOneById(@Param("id")Long id);
+
+    int countForPageList(Map<String, Object> paramMap);
+
+    List<Room> pageList(Map<String, Object> paramMap);
 }

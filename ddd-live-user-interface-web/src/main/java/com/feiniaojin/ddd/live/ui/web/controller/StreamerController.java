@@ -1,8 +1,8 @@
 package com.feiniaojin.ddd.live.ui.web.controller;
 
-import com.feiniaojin.ddd.live.application.service.stramer.StreamerQuery;
-import com.feiniaojin.ddd.live.application.service.stramer.StreamerQueryService;
-import com.feiniaojin.ddd.live.application.service.stramer.StreamerView;
+import com.feiniaojin.ddd.live.application.service.streamer.dto.StreamerQuery;
+import com.feiniaojin.ddd.live.application.service.streamer.StreamerQueryService;
+import com.feiniaojin.ddd.live.application.service.streamer.dto.StreamerView;
 import com.feiniaojin.gracefulresponse.data.PageBean;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

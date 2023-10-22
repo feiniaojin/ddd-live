@@ -83,7 +83,7 @@
                 and streamer_name = #{streamerName}
             </if>
         </where>
-        order by id desc
+        order by modified_time desc
         limit #{limitStart},#{limitEnd}
     </select>
 </mapper>

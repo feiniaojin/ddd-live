@@ -1,4 +1,4 @@
-package com.feiniaojin.ddd.live.application.service.stramer;
+package com.feiniaojin.ddd.live.application.service.streamer.dto;
 
 import lombok.Data;
 

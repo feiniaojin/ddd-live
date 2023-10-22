@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 
 @Component
-public class LiveDomainRepository implements LiveEntityRepository {
+public class LiveEntityRepositoryImpl implements LiveEntityRepository {
 
     @Resource
     private LiveJdbcRepository liveRepository;

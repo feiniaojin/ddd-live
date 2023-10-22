@@ -1,5 +1,7 @@
-package com.feiniaojin.ddd.live.application.service.stramer;
+package com.feiniaojin.ddd.live.application.service.streamer;
 
+import com.feiniaojin.ddd.live.application.service.streamer.dto.StreamerQuery;
+import com.feiniaojin.ddd.live.application.service.streamer.dto.StreamerView;
 import com.feiniaojin.ddd.live.infrastructure.persistence.data.Streamer;
 import com.feiniaojin.ddd.live.infrastructure.persistence.mapper.StreamerMapper;
 import com.feiniaojin.gracefulresponse.data.PageBean;
@@ -42,7 +44,6 @@ public class StreamerQueryService {
         pageBean.setList(views);
         pageBean.setTotal(count);
         return pageBean;
-
     }
 
     private List<StreamerView> dataToView(List<Streamer> dataList) {

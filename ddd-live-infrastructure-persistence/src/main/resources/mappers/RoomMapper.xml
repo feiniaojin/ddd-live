@@ -60,4 +60,27 @@
         <include refid="BaseColumn"/>
         from t_room where id=#{id}
     </select>
+
+    <select id="countForPageList" resultType="java.lang.Integer">
+        select
+        count(1)
+        from t_room
+        <where>
+            <if test="roomId != null">
+                and room_id =#{roomId}
+            </if>
+        </where>
+    </select>
+    <select id="pageList" resultMap="BaseResultMap">
+        select
+        <include refid="BaseColumn"/>
+        from t_room
+        <where>
+            <if test="roomId != null">
+                and room_id =#{roomId}
+            </if>
+        </where>
+        order by modified_time desc
+        limit #{limitStart},#{limitEnd}
+    </select>
 </mapper>
