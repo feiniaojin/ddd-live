@@ -1,4 +1,4 @@
-package com.feiniaojin.ddd.live.application.service.live;
+package com.feiniaojin.ddd.live.application.service.live.dto;
 
 import lombok.Data;
 

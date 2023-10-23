@@ -1,6 +1,7 @@
 package com.feiniaojin.ddd.live.infrastructure.persistence.jdbc;
 
 import com.feiniaojin.ddd.live.infrastructure.persistence.data.Streamer;
+import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -12,4 +13,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface StreamerJdbcRepository extends CrudRepository<Streamer, Long> {
+    @Query("select * from t_streamer where streamer_id=:streamerId")
+    Streamer queryOneByBizId(String streamerId);
 }

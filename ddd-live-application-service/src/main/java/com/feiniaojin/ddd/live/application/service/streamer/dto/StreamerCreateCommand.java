@@ -5,6 +5,7 @@ import lombok.Data;
 @Data
 public class StreamerCreateCommand {
     private String roomId;
+    private String streamerId;
     private String streamerName;
     private String avatar;
 }

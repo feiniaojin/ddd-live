@@ -27,13 +27,21 @@ public class Live implements Serializable {
     @Id
     private Long id;
     /**
-     * 房间号，业务主键
+     * 房间号
      */
     private String roomId;
     /**
      * 直播id
      */
     private String liveId;
+    /**
+     * 主播ID
+     */
+    private String streamerId;
+    /**
+     * 直播描述
+     */
+    private String description;
     /**
      * 计划开播时间
      */

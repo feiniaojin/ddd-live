@@ -1,5 +1,7 @@
 package com.feiniaojin.ddd.live.application.service.live;
 
+import com.feiniaojin.ddd.live.application.service.live.dto.LiveQuery;
+import com.feiniaojin.ddd.live.application.service.live.dto.LiveView;
 import com.feiniaojin.ddd.live.infrastructure.persistence.data.Live;
 import com.feiniaojin.ddd.live.infrastructure.persistence.jdbc.LiveJdbcRepository;
 import com.feiniaojin.ddd.live.infrastructure.persistence.mapper.LiveMapper;

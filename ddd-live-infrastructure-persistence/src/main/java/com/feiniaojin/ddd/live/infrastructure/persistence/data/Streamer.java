@@ -35,6 +35,14 @@ public class Streamer implements Serializable {
      */
     private String streamerName;
     /**
+     * 头像
+     */
+    private String avatar;
+    /**
+     * 主播状态，0禁用，1可用
+     */
+    private Integer streamerStatus;
+    /**
      * 逻辑删除标记[0-正常；1-已删除]
      */
     private Integer deleted;

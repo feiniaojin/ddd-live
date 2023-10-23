@@ -22,6 +22,16 @@ public class LiveEntity extends AbstractDomainMask {
     private String roomId;
 
     /**
+     * 主播id
+     */
+    private String streamerId;
+
+    /**
+     * 直播介绍
+     */
+    private String description;
+
+    /**
      * 计划开始时间
      */
     private Date planStartTime;
@@ -32,7 +42,17 @@ public class LiveEntity extends AbstractDomainMask {
     private Date planEndTime;
 
     /**
-     * 直播状态
+     * 直播状态,0未开播，1直播中，2已下播
      */
     private Integer liveStatus;
+
+    public void create() {
+        this.liveStatus = 0;
+    }
+
+    public void modifyBasic(String description, Date pst, Date pet) {
+        this.description = description;
+        this.planStartTime = pst;
+        this.planEndTime = pet;
+    }
 }

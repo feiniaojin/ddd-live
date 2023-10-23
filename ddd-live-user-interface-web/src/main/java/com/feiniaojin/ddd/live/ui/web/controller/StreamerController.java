@@ -7,6 +7,7 @@ import com.feiniaojin.ddd.live.application.service.streamer.dto.StreamerQuery;
 import com.feiniaojin.ddd.live.application.service.streamer.StreamerQueryService;
 import com.feiniaojin.ddd.live.application.service.streamer.dto.StreamerView;
 import com.feiniaojin.gracefulresponse.data.PageBean;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,12 +29,12 @@ public class StreamerController {
     }
 
     @RequestMapping("/create")
-    public void create(StreamerCreateCommand command) {
+    public void create(@RequestBody StreamerCreateCommand command) {
         commandService.create(command);
     }
 
     @RequestMapping("/modify")
-    public void modify(StreamerModifyCommand command){
+    public void modify(@RequestBody StreamerModifyCommand command) {
         commandService.modify(command);
     }
 }

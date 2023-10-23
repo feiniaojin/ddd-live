@@ -22,6 +22,7 @@ public class StreamerCommandService {
     public void create(StreamerCreateCommand command) {
 
         StreamerEntity entity = factory.newInstance(command.getRoomId(),
+                command.getStreamerId(),
                 command.getStreamerName(),
                 command.getAvatar());
         entity.create();

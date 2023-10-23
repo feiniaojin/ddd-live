@@ -20,19 +20,42 @@ public class LiveEntityRepositoryImpl implements LiveEntityRepository {
         String liveIdValue = entityId.getValue();
         Live live = liveRepository.queryOneByBizId(liveIdValue);
         LiveEntity entity = new LiveEntity();
+
         entity.setLiveId(entityId);
         entity.setLiveStatus(live.getLiveStatus());
         entity.setRoomId(live.getRoomId());
         entity.setPlanStartTime(live.getPlanStartTime());
         entity.setPlanEndTime(live.getPlanEndTime());
+        entity.setDescription(live.getDescription());
+        entity.setStreamerId(live.getStreamerId());
+
+        //维护层超类型
+        entity.setId(live.getId());
+        entity.setDeleted(live.getDeleted());
+        entity.setVersion(live.getVersion());
+        entity.setCreatedTime(live.getCreatedTime());
+        entity.setModifiedTime(live.getModifiedTime());
+
         return entity;
     }
 
     @Override
     public void save(LiveEntity liveEntity) {
         Live live = new Live();
-        //
+
+        live.setRoomId(liveEntity.getRoomId());
+        live.setStreamerId(liveEntity.getStreamerId());
+        live.setLiveId(liveEntity.getLiveId().getValue());
+        live.setPlanStartTime(liveEntity.getPlanStartTime());
+        live.setPlanEndTime(liveEntity.getPlanEndTime());
+        live.setDescription(liveEntity.getDescription());
+        live.setLiveStatus(liveEntity.getLiveStatus());
+
         live.setId(liveEntity.getId());
+        live.setDeleted(liveEntity.getDeleted());
+        live.setVersion(liveEntity.getVersion());
+        live.setCreatedTime(liveEntity.getCreatedTime());
+        live.setModifiedTime(liveEntity.getModifiedTime());
 
         liveRepository.save(live);
     }

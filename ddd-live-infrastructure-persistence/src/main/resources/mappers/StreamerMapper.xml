@@ -9,6 +9,8 @@
         <result column="id" property="id"/>
         <result column="streamer_id" property="streamerId"/>
         <result column="streamer_name" property="streamerName"/>
+        <result column="avatar" property="avatar"/>
+        <result column="streamer_status" property="streamerStatus"/>
         <result column="deleted" property="deleted"/>
         <result column="created_by" property="createdBy"/>
         <result column="created_time" property="createdTime"/>
@@ -20,6 +22,8 @@
         id,
         streamer_id,
         streamer_name,
+        avatar,
+        streamer_status,
         deleted,
         created_by,
         created_time,
@@ -32,6 +36,8 @@
         id,
         streamer_id,
         streamer_name,
+        avatar,
+        streamer_status,
         deleted,
         created_by,
         created_time,
@@ -43,6 +49,8 @@
             #{id},
             #{streamerId},
             #{streamerName},
+            #{avatar},
+            #{streamerStatus},
             #{deleted},
             #{createdBy},
             #{createdTime},

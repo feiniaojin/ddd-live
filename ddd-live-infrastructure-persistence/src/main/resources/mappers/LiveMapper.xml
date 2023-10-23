@@ -9,6 +9,8 @@
         <result column="id" property="id"/>
         <result column="room_id" property="roomId"/>
         <result column="live_id" property="liveId"/>
+        <result column="streamer_id" property="streamerId"/>
+        <result column="description" property="description"/>
         <result column="plan_start_time" property="planStartTime"/>
         <result column="plan_end_time" property="planEndTime"/>
         <result column="live_status" property="liveStatus"/>
@@ -23,6 +25,8 @@
         id,
         room_id,
         live_id,
+        streamer_id,
+        description,
         plan_start_time,
         plan_end_time,
         live_status,
@@ -38,6 +42,8 @@
         id,
         room_id,
         live_id,
+        streamer_id,
+        description,
         plan_start_time,
         plan_end_time,
         live_status,
@@ -52,6 +58,8 @@
             #{id},
             #{roomId},
             #{liveId},
+            #{streamerId},
+            #{description},
             #{planStartTime},
             #{planEndTime},
             #{liveStatus},

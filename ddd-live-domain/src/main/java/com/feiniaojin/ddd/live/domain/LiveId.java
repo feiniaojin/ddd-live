@@ -6,6 +6,13 @@ public class LiveId implements EntityId<String> {
 
     private String value;
 
+    public LiveId() {
+    }
+
+    public LiveId(String value) {
+        this.value = value;
+    }
+
     public void setValue(String value) {
         this.value = value;
     }
