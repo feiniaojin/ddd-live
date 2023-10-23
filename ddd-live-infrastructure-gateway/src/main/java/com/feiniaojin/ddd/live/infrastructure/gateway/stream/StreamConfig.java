@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import javax.annotation.PostConstruct;
 
 @Configuration
-@ConfigurationProperties(prefix = "ddd-live")
+@ConfigurationProperties(prefix = "ddd-live.stream")
 @Data
 public class StreamConfig {
 

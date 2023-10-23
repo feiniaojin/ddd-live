@@ -2,6 +2,7 @@ package com.feiniaojin.ddd.live.application.service.live;
 
 import com.feiniaojin.ddd.live.application.service.live.dto.LiveQuery;
 import com.feiniaojin.ddd.live.application.service.live.dto.LiveView;
+import com.feiniaojin.ddd.live.domain.StreamGateway;
 import com.feiniaojin.ddd.live.infrastructure.persistence.data.Live;
 import com.feiniaojin.ddd.live.infrastructure.persistence.jdbc.LiveJdbcRepository;
 import com.feiniaojin.ddd.live.infrastructure.persistence.mapper.LiveMapper;
@@ -16,6 +17,9 @@ import java.util.Map;
 
 @Service
 public class LiveQueryService {
+
+    @Resource
+    private StreamGateway streamGateway;
 
     @Resource
     private LiveJdbcRepository liveJdbcRepository;
@@ -36,12 +40,28 @@ public class LiveQueryService {
         if (count == 0) {
             return pageBean;
         }
+        paramMap.put("limitStart", (liveQuery.getPage() - 1) * liveQuery.getPageSize());
+        paramMap.put("limitEnd", liveQuery.getPageSize());
 
         List<Live> liveList = liveMapper.pageList(paramMap);
         List<LiveView> views = this.dataToView(liveList);
+        //填充推拉流地址（为了方便处理，直接在这里返回了，实际开发中一般单独提供接口获取推拉流地址）
+        this.generateStreamUrl(views);
         pageBean.setList(views);
         pageBean.setTotal(count);
         return pageBean;
+    }
+
+    /**
+     * 生成流相关地址
+     *
+     * @param views
+     */
+    private void generateStreamUrl(List<LiveView> views) {
+        for (LiveView v : views) {
+            v.setPushUrl(streamGateway.generatePushUrl(v.getLiveId()));
+            v.setPullUrl(streamGateway.generatePullUrl(v.getLiveId()));
+        }
     }
 
     private List<LiveView> dataToView(List<Live> liveList) {
@@ -51,6 +71,10 @@ public class LiveQueryService {
             LiveView view = new LiveView();
             view.setId(live.getId());
             view.setLiveId(live.getLiveId());
+            view.setLiveStatus(live.getLiveStatus());
+            view.setStreamerId(live.getStreamerId());
+            view.setRoomId(live.getRoomId());
+            view.setDescription(live.getDescription());
             views.add(view);
         }
         return views;

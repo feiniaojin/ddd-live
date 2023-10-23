@@ -36,11 +36,11 @@ public class StreamGatewayImpl implements StreamGateway {
      */
     @Override
     public String generatePullUrl(String streamId) {
-        String pushDomain = streamConfig.getPushDomain();
+        String pullDomain = streamConfig.getPullDomain();
         String pullKey = streamConfig.getPullKey();
         String appName = streamConfig.getAppName();
         Long expireTime = streamConfig.getExpireTime();
-        String pullUrlFlv = LiveUrlGenerator.generalPullUrlFlv(pushDomain, pullKey, appName, streamId, expireTime);
+        String pullUrlFlv = LiveUrlGenerator.generalPullUrlFlv(pullDomain, pullKey, appName, streamId, expireTime);
         logger.debug("生成拉地址成功,streamId={},generatePushUrl={}", streamId, pullUrlFlv);
         return pullUrlFlv;
     }

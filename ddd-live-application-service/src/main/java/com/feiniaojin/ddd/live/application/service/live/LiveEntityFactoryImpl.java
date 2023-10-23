@@ -40,6 +40,7 @@ public class LiveEntityFactoryImpl implements LiveEntityFactory {
         Date date = new Date();
         entity.setCreatedTime(date);
         entity.setModifiedTime(date);
+        entity.setDeleted(0);
         return entity;
     }
 }

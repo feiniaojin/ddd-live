@@ -22,3 +22,11 @@ spring:
       connection-timeout: 10000
 graceful-response:
   print-exception-in-global-advice: true
+
+ddd-live:
+  stream:
+    pull-domain: pull.live.feiniaojin.com
+    push-domain: push.live.feiniaojin.com
+    app-name: ddd-live
+    push-key: 123
+    pull-key: 123
