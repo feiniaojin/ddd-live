@@ -32,4 +32,14 @@ public class StreamerEntity extends AbstractDomainMask {
     public void create() {
         this.streamerStatus = 1;
     }
+
+    /**
+     * 修改基础信息
+     * @param streamerName
+     * @param avatar
+     */
+    public void modify(String streamerName, String avatar) {
+        this.streamerName = streamerName;
+        this.avatar = avatar;
+    }
 }

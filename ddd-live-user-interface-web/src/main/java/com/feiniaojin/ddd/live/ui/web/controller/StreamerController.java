@@ -1,5 +1,8 @@
 package com.feiniaojin.ddd.live.ui.web.controller;
 
+import com.feiniaojin.ddd.live.application.service.streamer.StreamerCommandService;
+import com.feiniaojin.ddd.live.application.service.streamer.dto.StreamerCreateCommand;
+import com.feiniaojin.ddd.live.application.service.streamer.dto.StreamerModifyCommand;
 import com.feiniaojin.ddd.live.application.service.streamer.dto.StreamerQuery;
 import com.feiniaojin.ddd.live.application.service.streamer.StreamerQueryService;
 import com.feiniaojin.ddd.live.application.service.streamer.dto.StreamerView;
@@ -16,9 +19,21 @@ public class StreamerController {
     @Resource
     private StreamerQueryService queryService;
 
+    @Resource
+    private StreamerCommandService commandService;
+
     @RequestMapping("/pageList")
     public PageBean<StreamerView> pageList(StreamerQuery query) {
         return queryService.pageList(query);
     }
 
+    @RequestMapping("/create")
+    public void create(StreamerCreateCommand command) {
+        commandService.create(command);
+    }
+
+    @RequestMapping("/modify")
+    public void modify(StreamerModifyCommand command){
+        commandService.modify(command);
+    }
 }

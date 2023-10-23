@@ -7,6 +7,7 @@ import com.feiniaojin.ddd.live.application.service.room.dto.RoomModifyCommand;
 import com.feiniaojin.ddd.live.application.service.room.dto.RoomQuery;
 import com.feiniaojin.ddd.live.application.service.room.dto.RoomView;
 import com.feiniaojin.gracefulresponse.data.PageBean;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,12 +29,12 @@ public class RoomController {
     }
 
     @RequestMapping("/create")
-    public void create(RoomCreateCommand command) {
+    public void create(@RequestBody RoomCreateCommand command) {
         commandService.create(command);
     }
 
     @RequestMapping("/modify")
-    public void modify(RoomModifyCommand command) {
+    public void modify(@RequestBody RoomModifyCommand command) {
         commandService.modify(command);
     }
 }

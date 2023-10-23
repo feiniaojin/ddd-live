@@ -5,6 +5,8 @@ import com.feiniaojin.ddd.live.domain.RoomEntityFactory;
 import com.feiniaojin.ddd.live.domain.RoomId;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
+
 @Component
 public class RoomFactoryImpl implements RoomEntityFactory {
 
@@ -17,6 +19,10 @@ public class RoomFactoryImpl implements RoomEntityFactory {
         roomEntity.setRoomName(roomName);
         roomEntity.setCover(cover);
 
+        roomEntity.setDeleted(0);
+        Date date = new Date();
+        roomEntity.setCreatedTime(date);
+        roomEntity.setModifiedTime(date);
         return roomEntity;
     }
 }
