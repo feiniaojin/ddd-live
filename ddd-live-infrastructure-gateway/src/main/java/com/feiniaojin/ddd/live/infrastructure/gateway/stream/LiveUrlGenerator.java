@@ -118,6 +118,29 @@ public class LiveUrlGenerator {
      * @param streamName 播放streamName，播放源流时，streamName 同推流streamName；播放转码流时，streamName 为推流streamName_{转码模板ID}
      * @param expireTime 过期时间（单位是秒）
      */
+    public static String generalPullUrlHls(String pullDomain, String pullKey, String appName, String streamName, long expireTime) {
+        String hlsUrl = ""; //m3u8的拉流地址
+        //播放域名未配置鉴权Key的情况下
+        if (pullKey == "") {
+            hlsUrl = "http://" + pullDomain + "/" + appName + "/" + streamName + ".m3u8";
+        } else {
+            long timeStamp = System.currentTimeMillis() / 1000L + expireTime;
+            String hlsToMd5 = "/" + appName + "/" + streamName + ".m3u8-" + Long.toString(timeStamp) + "-0-0-" + pullKey;
+            String hlsAuthKey = md5(hlsToMd5);
+            hlsUrl = "http://" + pullDomain + "/" + appName + "/" + streamName + ".m3u8" + "?auth_key=" + Long.toString(timeStamp) + "-0-0-" + hlsAuthKey;
+        }
+        return hlsUrl;
+    }
+
+    /**
+     * 生成播放地址
+     *
+     * @param pullDomain 播放域名
+     * @param pullKey    播放鉴权Key
+     * @param appName    播放appName（同推流appName)
+     * @param streamName 播放streamName，播放源流时，streamName 同推流streamName；播放转码流时，streamName 为推流streamName_{转码模板ID}
+     * @param expireTime 过期时间（单位是秒）
+     */
     public static void general_pull_url(String pullDomain, String pullKey, String appName, String streamName, long expireTime) {
         String rtmpUrl = ""; //rtmp的拉流地址
         String hlsUrl = ""; //m3u8的拉流地址
