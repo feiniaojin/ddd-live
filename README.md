@@ -18,6 +18,10 @@ https://github.com/feiniaojin/ddd-live-front
 ```text
 https://github.com/feiniaojin/graceful-response
 ```
+- ddd-archetype
+```text
+https://github.com/feiniaojin/ddd-archetype
+```
 - MySQL
 - 阿里云视频直播服务
 
