@@ -1,6 +1,7 @@
 package com.feiniaojin.ddd.live.domain;
 
 import com.feiniaojin.ddd.EntityId;
+import org.apache.commons.lang3.StringUtils;
 
 public class LiveId implements EntityId<String> {
 
@@ -10,6 +11,9 @@ public class LiveId implements EntityId<String> {
     }
 
     public LiveId(String value) {
+        if (StringUtils.isBlank(value)) {
+            throw new IllegalArgumentException();
+        }
         this.value = value;
     }
 

@@ -13,6 +13,7 @@ import java.util.Date;
 @Component
 public class LiveEntityFactoryImpl implements LiveEntityFactory {
 
+
     @Override
     public LiveEntity newInstance(String roomId,
                                   String streamerId,

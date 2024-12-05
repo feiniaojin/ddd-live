@@ -4,8 +4,6 @@ spring:
   jackson:
     time-zone: GMT+8
     date-format: yyyy-MM-dd HH:mm:ss
-  resources:
-    static-locations: classpath:/static/,classpath:/views/
   datasource:
     url: jdbc:mysql://localhost:3306/db_ddd_live
     username: feiniaojin
@@ -20,8 +18,13 @@ spring:
       pool-name: DatebookHikariCP
       max-lifetime: 1800000
       connection-timeout: 10000
+  web:
+    resources:
+      static-locations: classpath:/static/,classpath:/views/
 graceful-response:
   print-exception-in-global-advice: true
+  default-success-code: 20000
+  response-style: 1
 
 ddd-live:
   stream:

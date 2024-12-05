@@ -55,4 +55,8 @@ public class LiveEntity extends AbstractDomainMask {
         this.planStartTime = pst;
         this.planEndTime = pet;
     }
+
+    public void forbiddenStream() {
+        this.liveStatus = 2;
+    }
 }

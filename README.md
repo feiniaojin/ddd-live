@@ -2,7 +2,11 @@
 
 # DDD-LIVE
 
-基于DDD实现的直播服务。
+DDD-LIVE是基于DDD实现的直播服务。本项目是作者的新书《悟道领域驱动设计》的随书案例代码。《悟道领域驱动设计》目前已上架各大电商平台，感兴趣的朋友可以帮忙支持一下。
+
+<img alt="悟道领域驱动设计" src="assets/book.png" style="width: 50%">
+
+购买链接：https://item.jd.com/14835288.html
 
 配套前端工程地址：
 

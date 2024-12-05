@@ -1,5 +1,6 @@
 package com.feiniaojin.ddd.live.infrastructure.persistence;
 
+import com.feiniaojin.ddd.ValueObject;
 import com.feiniaojin.ddd.live.domain.RoomEntity;
 import com.feiniaojin.ddd.live.domain.RoomEntityRepository;
 import com.feiniaojin.ddd.live.domain.RoomId;
@@ -22,6 +23,7 @@ public class RoomEntityRepositoryImpl implements RoomEntityRepository {
 
         RoomEntity roomEntity = new RoomEntity();
         roomEntity.setRoomName(room.getRoomName());
+
         roomEntity.setRoomId(entityId);
         roomEntity.setCover(room.getCover());
 
@@ -41,7 +43,7 @@ public class RoomEntityRepositoryImpl implements RoomEntityRepository {
         room.setRoomName(roomEntity.getRoomName());
         room.setCover(roomEntity.getCover());
 
-        //维护数据模型地信息
+        //维护数据模型的信息
         room.setId(roomEntity.getId());
         room.setVersion(roomEntity.getVersion());
         room.setDeleted(roomEntity.getDeleted());

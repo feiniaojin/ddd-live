@@ -1,5 +1,6 @@
 package com.feiniaojin.ddd.live.infrastructure.gateway.stream;
 
+import com.feiniaojin.ddd.live.domain.LiveId;
 import com.feiniaojin.ddd.live.domain.StreamGateway;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -46,7 +47,9 @@ public class StreamGatewayImpl implements StreamGateway {
     }
 
     @Override
-    public void forbiddenStream(String liveId) {
+    public void forbiddenStream(LiveId liveId) {
         //TODO 调用云服务的接口完成禁流操作
+        String idValue = liveId.getValue();
+        //
     }
 }

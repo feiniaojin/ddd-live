@@ -1,17 +1,16 @@
 package com.feiniaojin.ddd.live.application.service.live;
 
+import com.feiniaojin.ddd.live.application.service.live.dto.ForbiddenStreamCommand;
 import com.feiniaojin.ddd.live.application.service.live.dto.LiveCreateCommand;
 import com.feiniaojin.ddd.live.application.service.live.dto.LiveModifyBasicCommand;
-import com.feiniaojin.ddd.live.domain.LiveEntity;
-import com.feiniaojin.ddd.live.domain.LiveEntityFactory;
-import com.feiniaojin.ddd.live.domain.LiveEntityRepository;
-import com.feiniaojin.ddd.live.domain.LiveId;
+import com.feiniaojin.ddd.live.domain.*;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Objects;
 
 @Service
 public class LiveCommandService {
@@ -22,6 +21,8 @@ public class LiveCommandService {
     @Resource
     private LiveEntityRepository entityRepository;
 
+    @Resource
+    private StreamGateway streamGateway;
     public void create(LiveCreateCommand command) {
 
         LiveEntity entity = entityFactory.newInstance(command.getRoomId(),
@@ -50,4 +51,16 @@ public class LiveCommandService {
             throw new RuntimeException(e);
         }
     }
+
+    public void forbiddenStream(ForbiddenStreamCommand cmd){
+
+        LiveId liveId = new LiveId(cmd.getLiveId());
+        //修改状态
+        LiveEntity liveEntity = entityRepository.load(liveId);
+        liveEntity.forbiddenStream();
+        entityRepository.save(liveEntity);
+        //
+        streamGateway.forbiddenStream(liveId);
+    }
+
 }

@@ -22,5 +22,5 @@ public interface StreamGateway {
      * 禁流，一般禁止推流
      * @param liveId 直播ID
      */
-    void forbiddenStream(String liveId);
+    void forbiddenStream(LiveId liveId);
 }
