@@ -11,7 +11,11 @@ DDD-LIVE是基于DDD实现的直播服务。本项目是作者的新书《悟道
 配套前端工程地址：
 
 ```text
-https://github.com/feiniaojin/ddd-live-front
+后管：
+https://github.com/feiniaojin/ddd-live-console
+
+用户：
+https://github.com/feiniaojin/ddd-live-diliddli
 ```
 
 # 技术栈
