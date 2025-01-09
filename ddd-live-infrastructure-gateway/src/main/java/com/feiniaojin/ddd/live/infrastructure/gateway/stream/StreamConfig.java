@@ -46,16 +46,5 @@ public class StreamConfig {
     @PostConstruct
     public void init() {
 
-//        String pushKey = System.getenv("ddd-live.push-key");
-        String pushKey = "XLkmKj4eRCBsvfiE";
-        if (StringUtils.isNoneBlank(pushKey)) {
-            this.pushKey = pushKey;
-        }
-
-//        String pullKey = System.getenv("ddd-live.pull-key");
-        String pullKey = "J9W6vGTcimevU1Wl";
-        if (StringUtils.isNoneBlank(pullKey)) {
-            this.pullKey = pullKey;
-        }
     }
 }

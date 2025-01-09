@@ -19,14 +19,15 @@ public class RoomCommandService {
     private RoomEntityRepository roomEntityRepository;
 
     public void create(RoomCreateCommand command) {
-        RoomEntity roomEntity = factory.newInstance(command.getRoomId(), command.getRoomName(), command.getCover());
+        RoomEntity roomEntity = factory.newInstance(command.getRoomId(), command.getRoomName(),
+                command.getRoomDescription(), command.getRoomCover());
         roomEntity.create();
         roomEntityRepository.save(roomEntity);
     }
 
     public void modify(RoomModifyCommand command) {
         RoomEntity roomEntity = roomEntityRepository.load(new RoomId(command.getRoomId()));
-        roomEntity.modify(command.getRoomName(), command.getCover());
+        roomEntity.modify(command.getRoomName(), command.getRoomCover());
         roomEntityRepository.save(roomEntity);
     }
 

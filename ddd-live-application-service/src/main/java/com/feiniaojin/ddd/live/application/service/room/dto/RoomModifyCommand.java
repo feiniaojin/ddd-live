@@ -8,5 +8,5 @@ public class RoomModifyCommand {
 
     private String roomName;
 
-    private String cover;
+    private String roomCover;
 }

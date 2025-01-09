@@ -1,5 +1,6 @@
 package com.feiniaojin.ddd.live.infrastructure.persistence;
 
+import com.feiniaojin.ddd.live.domain.RoomId;
 import com.feiniaojin.ddd.live.domain.StreamerEntity;
 import com.feiniaojin.ddd.live.domain.StreamerEntityRepository;
 import com.feiniaojin.ddd.live.domain.StreamerId;
@@ -25,6 +26,7 @@ public class StreamerEntityRepositoryImpl implements StreamerEntityRepository {
         entity.setStreamerName(data.getStreamerName());
         entity.setAvatar(data.getAvatar());
         entity.setStreamerStatus(data.getStreamerStatus());
+        entity.setRoomId(new RoomId(data.getRoomId()));
 
         entity.setId(data.getId());
         entity.setDeleted(data.getDeleted());
@@ -44,6 +46,7 @@ public class StreamerEntityRepositoryImpl implements StreamerEntityRepository {
         streamer.setStreamerName(streamerEntity.getStreamerName());
         streamer.setAvatar(streamerEntity.getAvatar());
         streamer.setStreamerStatus(streamerEntity.getStreamerStatus());
+        streamer.setRoomId(streamerEntity.getRoomId().getValue());
 
         streamer.setId(streamerEntity.getId());
         streamer.setVersion(streamerEntity.getVersion());

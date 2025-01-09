@@ -9,7 +9,9 @@
         <result column="id" property="id"/>
         <result column="room_id" property="roomId"/>
         <result column="room_name" property="roomName"/>
-        <result column="cover" property="cover"/>
+        <result column="room_cover" property="roomCover"/>
+        <result column="room_description" property="roomDescription"/>
+        <result column="room_status" property="roomStatus"/>
         <result column="deleted" property="deleted"/>
         <result column="created_by" property="createdBy"/>
         <result column="created_time" property="createdTime"/>
@@ -21,7 +23,10 @@
         id,
         room_id,
         room_name,
-        cover,
+        room_cover,
+        room_description,
+        room_status,
+        room_cover,
         deleted,
         created_by,
         created_time,
@@ -34,7 +39,10 @@
         id,
         room_id,
         room_name,
-        cover,
+        room_cover,
+        room_description,
+        room_status,
+        room_cover,
         deleted,
         created_by,
         created_time,
@@ -46,7 +54,9 @@
             #{id},
             #{roomId},
             #{roomName},
-            #{cover},
+            #{roomCover},
+            #{roomDescription},
+            #{roomStatus},
             #{deleted},
             #{createdBy},
             #{createdTime},

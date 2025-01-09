@@ -29,6 +29,11 @@ public class LiveEntity extends AbstractDomainMask {
     /**
      * 直播介绍
      */
+    private String title;
+
+    /**
+     * 直播介绍
+     */
     private String description;
 
     /**
@@ -45,6 +50,11 @@ public class LiveEntity extends AbstractDomainMask {
      * 直播状态,0未开播，1直播中，2已下播
      */
     private Integer liveStatus;
+
+    /**
+     * 海报
+     */
+    private String liveCover;
 
     public void create() {
         this.liveStatus = 0;

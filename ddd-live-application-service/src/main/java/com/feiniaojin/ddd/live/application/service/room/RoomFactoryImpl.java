@@ -11,14 +11,15 @@ import java.util.Date;
 public class RoomFactoryImpl implements RoomEntityFactory {
 
     @Override
-    public RoomEntity newInstance(String roomId, String roomName, String cover) {
+    public RoomEntity newInstance(String roomId, String roomName, String roomDescription, String cover) {
 
         RoomEntity roomEntity = new RoomEntity();
 
         roomEntity.setRoomId(new RoomId(roomId));
         roomEntity.setRoomName(roomName);
-        roomEntity.setCover(cover);
-
+        roomEntity.setRoomCover(cover);
+        roomEntity.setRoomDescription(roomDescription);
+        roomEntity.setRoomStatus(0);
         roomEntity.setDeleted(0);
         Date date = new Date();
         roomEntity.setCreatedTime(date);

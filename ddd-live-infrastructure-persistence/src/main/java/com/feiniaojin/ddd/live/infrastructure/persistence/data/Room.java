@@ -37,7 +37,15 @@ public class Room implements Serializable {
     /**
      * 房间封面
      */
-    private String cover;
+    private String roomCover;
+    /**
+     * 房间描述
+     */
+    private String roomDescription;
+    /**
+     * 房间状态
+     */
+    private Integer roomStatus;
     /**
      * 逻辑删除标记[0-正常；1-已删除]
      */
@@ -49,7 +57,7 @@ public class Room implements Serializable {
     /**
      * 创建时间
      */
-     @CreatedDate
+    @CreatedDate
     private Date createdTime;
     /**
      * 更新人

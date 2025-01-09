@@ -9,6 +9,7 @@ public class RoomCreateCommand {
 
     private String roomName;
 
-    private String cover;
+    private String roomCover;
 
+    private String roomDescription;
 }

@@ -39,9 +39,18 @@ public class Live implements Serializable {
      */
     private String streamerId;
     /**
+     * 直播标题
+     */
+    private String title;
+    /**
      * 直播描述
      */
     private String description;
+
+    /**
+     * 直播封面
+     */
+    private String liveCover;
     /**
      * 计划开播时间
      */
@@ -65,7 +74,7 @@ public class Live implements Serializable {
     /**
      * 创建时间
      */
-     @CreatedDate
+    @CreatedDate
     private Date createdTime;
     /**
      * 更新人

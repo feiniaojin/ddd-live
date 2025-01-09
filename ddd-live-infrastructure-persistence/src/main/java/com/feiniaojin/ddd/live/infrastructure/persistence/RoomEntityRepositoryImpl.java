@@ -25,7 +25,9 @@ public class RoomEntityRepositoryImpl implements RoomEntityRepository {
         roomEntity.setRoomName(room.getRoomName());
 
         roomEntity.setRoomId(entityId);
-        roomEntity.setCover(room.getCover());
+        roomEntity.setRoomCover(room.getRoomCover());
+        roomEntity.setRoomDescription(room.getRoomDescription());
+        roomEntity.setRoomStatus(room.getRoomStatus());
 
         roomEntity.setId(room.getId());
         roomEntity.setDeleted(room.getDeleted());
@@ -41,7 +43,10 @@ public class RoomEntityRepositoryImpl implements RoomEntityRepository {
         Room room = new Room();
         room.setRoomId(roomEntity.getRoomId().getValue());
         room.setRoomName(roomEntity.getRoomName());
-        room.setCover(roomEntity.getCover());
+
+        room.setRoomCover(roomEntity.getRoomCover());
+        room.setRoomDescription(roomEntity.getRoomDescription());
+        room.setRoomStatus(roomEntity.getRoomStatus());
 
         //维护数据模型的信息
         room.setId(roomEntity.getId());

@@ -17,7 +17,9 @@ public class LiveEntityFactoryImpl implements LiveEntityFactory {
     @Override
     public LiveEntity newInstance(String roomId,
                                   String streamerId,
+                                  String title,
                                   String description,
+                                  String liveCover,
                                   String planStartTime,
                                   String planEndTime) {
         LiveEntity entity = new LiveEntity();
@@ -28,6 +30,8 @@ public class LiveEntityFactoryImpl implements LiveEntityFactory {
         entity.setRoomId(roomId);
         entity.setStreamerId(streamerId);
         entity.setDescription(description);
+        entity.setTitle(title);
+        entity.setLiveCover(liveCover);
 
         try {
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

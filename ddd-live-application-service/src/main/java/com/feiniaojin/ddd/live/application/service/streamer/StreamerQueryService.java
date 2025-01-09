@@ -27,6 +27,10 @@ public class StreamerQueryService {
 
         Map<String, Object> paramMap = new HashMap<>();
 
+        if (StringUtils.isNoneBlank(query.getStreamerId())) {
+            paramMap.put("streamerId", query.getStreamerId());
+        }
+
         int count = streamerMapper.countForPageList(paramMap);
         pageBean.setTotal(count);
         if (count == 0) {
@@ -35,10 +39,6 @@ public class StreamerQueryService {
 
         paramMap.put("limitStart", (query.getPage() - 1) * query.getPageSize());
         paramMap.put("limitEnd", query.getPageSize());
-
-        if (StringUtils.isNoneBlank(query.getStreamerId())) {
-            paramMap.put("streamerId", query.getStreamerId());
-        }
         List<Streamer> dataList = streamerMapper.pageList(paramMap);
         List<StreamerView> views = this.dataToView(dataList);
         pageBean.setList(views);
@@ -54,6 +54,9 @@ public class StreamerQueryService {
             view.setId(e.getId());
             view.setStreamerId(e.getStreamerId());
             view.setStreamerName(e.getStreamerName());
+            view.setAvatar(e.getAvatar());
+            view.setRoomId(e.getRoomId());
+            view.setStreamerStatus(e.getStreamerStatus());
             views.add(view);
         }
         return views;

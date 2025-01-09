@@ -8,6 +8,7 @@
     <resultMap id="BaseResultMap" type="com.feiniaojin.ddd.live.infrastructure.persistence.data.Streamer">
         <result column="id" property="id"/>
         <result column="streamer_id" property="streamerId"/>
+        <result column="room_id" property="roomId"/>
         <result column="streamer_name" property="streamerName"/>
         <result column="avatar" property="avatar"/>
         <result column="streamer_status" property="streamerStatus"/>
@@ -21,6 +22,7 @@
     <sql id="BaseColumn">
         id,
         streamer_id,
+        room_id,
         streamer_name,
         avatar,
         streamer_status,
@@ -35,6 +37,7 @@
         insert into t_streamer (
         id,
         streamer_id,
+        room_id,
         streamer_name,
         avatar,
         streamer_status,
@@ -48,6 +51,7 @@
         <trim prefix="values (" suffix=")">
             #{id},
             #{streamerId},
+            #{roomId},
             #{streamerName},
             #{avatar},
             #{streamerStatus},

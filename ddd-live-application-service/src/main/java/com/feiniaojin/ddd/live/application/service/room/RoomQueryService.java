@@ -28,6 +28,10 @@ public class RoomQueryService {
 
         Map<String, Object> paramMap = new HashMap<>();
 
+        if (StringUtils.isNoneBlank(query.getRoomId())) {
+            paramMap.put("roomId", query.getRoomId());
+        }
+
         int count = roomMapper.countForPageList(paramMap);
         pageBean.setTotal(count);
         if (count == 0) {
@@ -36,9 +40,6 @@ public class RoomQueryService {
         paramMap.put("limitStart", (query.getPage() - 1) * query.getPageSize());
         paramMap.put("limitEnd", query.getPageSize());
 
-        if (StringUtils.isNoneBlank(query.getRoomId())) {
-            paramMap.put("roomId", query.getRoomId());
-        }
         List<Room> dataList = roomMapper.pageList(paramMap);
         List<RoomView> views = this.dataToView(dataList);
         pageBean.setList(views);
@@ -54,7 +55,8 @@ public class RoomQueryService {
             view.setId(e.getId());
             view.setRoomId(e.getRoomId());
             view.setRoomName(e.getRoomName());
-            view.setCover(e.getCover());
+            view.setRoomCover(e.getRoomCover());
+            view.setRoomDescription(e.getRoomDescription());
             views.add(view);
         }
         return views;

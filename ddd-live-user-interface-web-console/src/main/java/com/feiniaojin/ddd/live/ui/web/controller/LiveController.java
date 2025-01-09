@@ -37,4 +37,9 @@ public class LiveController {
     public void modifyBasic(@RequestBody LiveModifyBasicCommand command) {
         commandService.modifyBasic(command);
     }
+
+    @RequestMapping("/get")
+    public LiveView get(LiveQuery query) {
+        return liveQueryService.get(query);
+    }
 }

@@ -27,7 +27,9 @@ public class LiveCommandService {
 
         LiveEntity entity = entityFactory.newInstance(command.getRoomId(),
                 command.getStreamerId(),
+                command.getTitle(),
                 command.getDescription(),
+                command.getLiveCover(),
                 command.getPlanStartTime(),
                 command.getPlanEndTime());
         entity.create();

@@ -31,6 +31,10 @@ public class Streamer implements Serializable {
      */
     private String streamerId;
     /**
+     * 房间号
+     */
+    private String roomId;
+    /**
      * 主播名称
      */
     private String streamerName;

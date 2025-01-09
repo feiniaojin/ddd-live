@@ -6,8 +6,8 @@ spring:
     date-format: yyyy-MM-dd HH:mm:ss
   datasource:
     url: jdbc:mysql://localhost:3306/db_ddd_live
-    username: feiniaojin
-    password: Qinyujie
+    username: root
+    password: your_password
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
@@ -23,13 +23,13 @@ spring:
       static-locations: classpath:/static/,classpath:/views/
 graceful-response:
   print-exception-in-global-advice: true
-  default-success-code: 20000
+  default-success-code: 0
   response-style: 1
 
 ddd-live:
   stream:
-    pull-domain: pull.live.feiniaojin.com
-    push-domain: push.live.feiniaojin.com
-    app-name: ddd-live
-    push-key: 123
-    pull-key: 123
+    pull-domain: your_pull-domain
+    push-domain: your_push-domain
+    app-name: your_app-name
+    push-key: your_push-key
+    pull-key: your_pull-key

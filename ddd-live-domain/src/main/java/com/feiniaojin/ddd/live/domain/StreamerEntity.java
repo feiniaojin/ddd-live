@@ -15,6 +15,11 @@ public class StreamerEntity extends AbstractDomainMask {
     private StreamerId streamerId;
 
     /**
+     * 房间号
+     */
+    private RoomId roomId;
+
+    /**
      * 主播名称
      */
     private String streamerName;

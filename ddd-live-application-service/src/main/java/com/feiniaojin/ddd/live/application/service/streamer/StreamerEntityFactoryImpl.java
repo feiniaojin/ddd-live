@@ -1,5 +1,6 @@
 package com.feiniaojin.ddd.live.application.service.streamer;
 
+import com.feiniaojin.ddd.live.domain.RoomId;
 import com.feiniaojin.ddd.live.domain.StreamerEntity;
 import com.feiniaojin.ddd.live.domain.StreamerEntityFactory;
 import com.feiniaojin.ddd.live.domain.StreamerId;
@@ -23,6 +24,7 @@ public class StreamerEntityFactoryImpl implements StreamerEntityFactory {
         entity.setStreamerId(new StreamerId(streamerId));
         entity.setStreamerName(streamerName);
         entity.setAvatar(avatar);
+        entity.setRoomId(new RoomId(roomId));
 
         entity.setDeleted(0);
         Date date = new Date();

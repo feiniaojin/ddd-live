@@ -97,7 +97,12 @@
             </dependency>
             <dependency>
                 <groupId>com.feiniaojin.ddd.live</groupId>
-                <artifactId>ddd-live-user-interface-web</artifactId>
+                <artifactId>ddd-live-user-interface-web-console</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.feiniaojin.ddd.live</groupId>
+                <artifactId>ddd-live-user-interface-web-diliddli</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
             <dependency>
@@ -168,7 +173,8 @@
         <module>ddd-live-infrastructure-publisher</module>
         <module>ddd-live-infrastructure-gateway</module>
         <module>ddd-live-infrastructure-cache</module>
-        <module>ddd-live-user-interface-web</module>
+        <module>ddd-live-user-interface-web-console</module>
+        <module>ddd-live-user-interface-web-diliddli</module>
         <module>ddd-live-user-interface-worker</module>
         <module>ddd-live-user-interface-provider</module>
         <module>ddd-live-user-interface-subscriber</module>

@@ -27,7 +27,9 @@ public class LiveEntityRepositoryImpl implements LiveEntityRepository {
         entity.setPlanStartTime(live.getPlanStartTime());
         entity.setPlanEndTime(live.getPlanEndTime());
         entity.setDescription(live.getDescription());
+        entity.setTitle(live.getTitle());
         entity.setStreamerId(live.getStreamerId());
+        entity.setLiveCover(live.getLiveCover());
 
         //维护层超类型
         entity.setId(live.getId());
@@ -49,7 +51,9 @@ public class LiveEntityRepositoryImpl implements LiveEntityRepository {
         live.setPlanStartTime(liveEntity.getPlanStartTime());
         live.setPlanEndTime(liveEntity.getPlanEndTime());
         live.setDescription(liveEntity.getDescription());
+        live.setTitle(liveEntity.getTitle());
         live.setLiveStatus(liveEntity.getLiveStatus());
+        live.setLiveCover(live.getLiveCover());
 
         live.setId(liveEntity.getId());
         live.setDeleted(liveEntity.getDeleted());

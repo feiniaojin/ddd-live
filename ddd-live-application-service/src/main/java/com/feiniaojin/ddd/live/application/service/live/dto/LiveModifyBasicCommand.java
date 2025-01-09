@@ -9,6 +9,8 @@ public class LiveModifyBasicCommand {
 
     private String description;
 
+    private String liveCover;
+
     private String planStartTime;
 
     private String planEndTime;

@@ -15,6 +15,9 @@ public class LiveView {
     private String liveId;
 
     private String description;
+    private String title;
+
+    private String liveCover;
 
     private Integer liveStatus;
 

@@ -8,7 +8,11 @@ public class LiveCreateCommand {
 
     private String streamerId;
 
+    private String title;
+
     private String description;
+
+    private String liveCover;
 
     private String planStartTime;
 

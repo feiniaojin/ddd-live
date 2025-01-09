@@ -11,6 +11,8 @@
         <result column="live_id" property="liveId"/>
         <result column="streamer_id" property="streamerId"/>
         <result column="description" property="description"/>
+        <result column="title" property="title"/>
+        <result column="live_cover" property="liveCover"/>
         <result column="plan_start_time" property="planStartTime"/>
         <result column="plan_end_time" property="planEndTime"/>
         <result column="live_status" property="liveStatus"/>
@@ -27,6 +29,8 @@
         live_id,
         streamer_id,
         description,
+        title,
+        live_cover,
         plan_start_time,
         plan_end_time,
         live_status,
@@ -44,6 +48,8 @@
         live_id,
         streamer_id,
         description,
+        title,
+        live_cover,
         plan_start_time,
         plan_end_time,
         live_status,
@@ -60,6 +66,8 @@
             #{liveId},
             #{streamerId},
             #{description},
+            #{title},
+            #{liveCover},
             #{planStartTime},
             #{planEndTime},
             #{liveStatus},

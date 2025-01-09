@@ -20,10 +20,13 @@ public class RoomEntity extends AbstractDomainMask {
     /**
      * 直播间封面
      */
-    private String cover;
-
+    private String roomCover;
     /**
-     * 房间状态，1有效，0失效
+     * 房间描述
+     */
+    private String roomDescription;
+    /**
+     * 房间状态，0有效，1失效
      */
     private Integer roomStatus;
 
@@ -31,8 +34,8 @@ public class RoomEntity extends AbstractDomainMask {
         this.roomStatus = 1;
     }
 
-    public void modify(String roomName, String cover) {
+    public void modify(String roomName, String roomCover) {
         this.roomName = roomName;
-        this.cover = cover;
+        this.roomCover = roomCover;
     }
 }

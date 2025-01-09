@@ -14,4 +14,13 @@ public class StreamerView {
      * 主播名称
      */
     private String streamerName;
+
+    private String avatar;
+
+    private String roomId;
+
+    /**
+     * 主播状态，0禁用，1可用
+     */
+    private Integer streamerStatus;
 }

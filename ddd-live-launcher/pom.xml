@@ -23,7 +23,7 @@
         </dependency>
         <dependency>
             <groupId>com.feiniaojin.ddd.live</groupId>
-            <artifactId>ddd-live-user-interface-web</artifactId>
+            <artifactId>ddd-live-user-interface-web-console</artifactId>
         </dependency>
         <dependency>
             <groupId>com.feiniaojin.ddd.live</groupId>
@@ -36,6 +36,10 @@
         <dependency>
             <groupId>com.feiniaojin.ddd.live</groupId>
             <artifactId>ddd-live-user-interface-worker</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.feiniaojin.ddd.live</groupId>
+            <artifactId>ddd-live-user-interface-web-diliddli</artifactId>
         </dependency>
     </dependencies>
 

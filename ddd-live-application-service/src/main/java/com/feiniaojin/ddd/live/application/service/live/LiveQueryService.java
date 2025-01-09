@@ -47,7 +47,7 @@ public class LiveQueryService {
         paramMap.put("limitEnd", liveQuery.getPageSize());
 
         List<Live> liveList = liveMapper.pageList(paramMap);
-        List<LiveView> views = this.dataToView(liveList);
+        List<LiveView> views = this.toViewList(liveList);
         //填充推拉流地址（为了方便处理，直接在这里返回了，实际开发中一般单独提供接口获取推拉流地址）
         this.generateStreamUrl(views);
         pageBean.setList(views);
@@ -67,26 +67,43 @@ public class LiveQueryService {
         }
     }
 
-    private List<LiveView> dataToView(List<Live> liveList) {
+    private List<LiveView> toViewList(List<Live> liveList) {
         List<LiveView> views = new ArrayList<>(liveList.size());
-        DateFormat format = new SimpleDateFormat("yyyy-MM-dd -HH:mm:ss");
         for (Live live : liveList) {
-            LiveView view = new LiveView();
-            view.setId(live.getId());
-            view.setLiveId(live.getLiveId());
-            view.setLiveStatus(live.getLiveStatus());
-            view.setStreamerId(live.getStreamerId());
-            view.setRoomId(live.getRoomId());
-            view.setDescription(live.getDescription());
-            if (live.getPlanStartTime() != null) {
-                view.setPlanStartTime(format.format(live.getPlanStartTime()));
-            }
-            if (live.getPlanEndTime() != null) {
-                view.setPlanEndTime(format.format(live.getPlanEndTime()));
-            }
-            view.setLiveStatusShow(LiveStatusEnum.getNameByCode(live.getLiveStatus()));
+            LiveView view = toView(live);
             views.add(view);
         }
         return views;
+    }
+
+
+    private LiveView toView(Live live) {
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd -HH:mm:ss");
+        LiveView view = new LiveView();
+        view.setId(live.getId());
+        view.setLiveId(live.getLiveId());
+        view.setLiveStatus(live.getLiveStatus());
+        view.setStreamerId(live.getStreamerId());
+        view.setRoomId(live.getRoomId());
+        view.setDescription(live.getDescription());
+        view.setTitle(live.getTitle());
+        view.setLiveCover(live.getLiveCover());
+        if (live.getPlanStartTime() != null) {
+            view.setPlanStartTime(format.format(live.getPlanStartTime()));
+        }
+        if (live.getPlanEndTime() != null) {
+            view.setPlanEndTime(format.format(live.getPlanEndTime()));
+        }
+        view.setLiveStatusShow(LiveStatusEnum.getNameByCode(live.getLiveStatus()));
+        return view;
+    }
+
+    public LiveView get(LiveQuery query) {
+
+        Live live = liveJdbcRepository.queryOneByBizId(query.getLiveId());
+        // todo 填充一系列的信息
+        LiveView view = toView(live);
+        view.setPullUrl(streamGateway.generatePullUrl(live.getLiveId()));
+        return view;
     }
 }
